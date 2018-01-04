@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const Header = () => {
   return (
-    <View style = {headerContainer} >
+    <View style = {headerContainer} onPress={() => {console.log(this.props)}} >
       <Text style= {header} > Crypto Tracker </Text>
     </View>
   )
