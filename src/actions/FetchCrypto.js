@@ -11,7 +11,7 @@ export default function FetchCrypto() {
 
       dispatch({ type: FETCHING_CRYPTO })
 
-      return axios.get('${apiBaseURL}/v1/ticker/?limit=10')
+      return axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
         .then(res => {
           dispatch({ type: FETCHING_CRYPTO_SUCCESS, payload: res.data })
         })
