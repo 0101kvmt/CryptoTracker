@@ -10,9 +10,10 @@ import { images } from './../utils/CoinIcons.js'
 const styles = StyleSheet.create({
     container: {
         display: "flex",
+        flex: 2,
         marginBottom: 20,
         backgroundColor: 'blue',
-        borderBottomColor: "#e5e5e5",
+        borderRadius: 10,
         borderBottomWidth: 3,
         padding: 20
     },
