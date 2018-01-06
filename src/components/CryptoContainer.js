@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 
@@ -14,22 +14,27 @@ class CryptoContainer extends Component {
   renderCards() {
     const crypton = this.props.crypto.data;
     console.log("outside", crypton)
-    return
-      crypton.map((c, i) => {
-        console.log("console", c);
-        <Card
-          key={i}
-          name={c.name}
-          icon={c.symbol}
-          usd={c.price_usd}
-          percent_change_24h={c.percent_change_24h}
-          percent_change_7d={c.percent_change_7d}
-        />
-      }
+    console.log("length", crypton.length)
+    return (
+
+        crypton.map((c, i) => {
+          return(
+            <Card
+              key={i}
+              name={c.name}
+              icon={c.symbol}
+              usd={c.price_usd}
+              percent_change_24h={c.percent_change_24h}
+              percent_change_7d={c.percent_change_7d}
+            />
+          )
+          }
+
+        )
 
 
-    )
 
+)
   }
   render() {
     const crypto = this.props;
@@ -49,10 +54,25 @@ class CryptoContainer extends Component {
     }
     console.log(this.props)
     return (
-      <View>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
         {this.renderCards()}
-      </View>
+      </ScrollView>
+
     )
+  }
+}
+
+const styles = {
+  container: {
+      display: "flex",
+      marginBottom: 20,
+      borderBottomColor: "#e5e5e5",
+      borderBottomWidth: 3,
+      padding: 20
+  },
+  contentContainer: {
+    paddingBottom: 100,
+    paddingTop: 55
   }
 }
 

@@ -11,7 +11,7 @@ export default class App extends React.Component {
     return (
       <Provider store ={Store}>
         <View style={styles.container}>
-          <Header hello={this.props} />
+          <Header />
           <Text>REAL-TIME Crypto</Text>
           <Text>REAL-TIME HODLS</Text>
           <CryptoContainer />
