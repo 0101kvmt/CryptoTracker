@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 
 import * as actions from './../../actions/FetchCrypto.js';
@@ -10,9 +10,13 @@ import  Header  from './../../components/header.js';
 
 export default class Base extends Component {
   render() {
+      const { navigate } = this.props.navigation;
     return(
       <View style={styles.container}>
         <Header />
+        <TouchableHighlight onPress = {() => this.props.navigation.navigate('Detail')}>
+          <Text> HI </Text>
+        </TouchableHighlight>
         <Text>REAL-TIME Crypto</Text>
         <Text>REAL-TIME HODLS</Text>
         <CryptoContainer />
