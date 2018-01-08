@@ -3,7 +3,8 @@ import {
     View,
     Text,
     StyleSheet,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 import { images } from './../utils/CoinIcons.js'
 
@@ -83,16 +84,18 @@ const {
     percentChangeMinus
 } = styles;
 
-const Card = ({ icon, name, usd, percent_change_24h, percent_change_7d }) => {
+const Card = ({ icon, name, usd, percent_change_24h, percent_change_7d, pressIcon }) => {
 
     return (
         <View style={container}>
 
             <View style={upperRow}>
+            <TouchableOpacity onPress={pressIcon}>
                 <Image
                     style={styles.image}
                     source={{ uri: images[icon] }}
                 />
+            </TouchableOpacity>
                 <Text style={coinSymbol}>{icon}</Text>
                 <Text style={seperator}>|</Text>
                 <Text style={coinName}>{name}</Text>

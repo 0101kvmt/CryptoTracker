@@ -8,18 +8,25 @@ import  Card  from './../../components/card.js';
 import  Header  from './../../components/header.js';
 
 
-export default class Base extends Component {
+class Base extends Component {
+
+  navigateDetail(card) {
+    console.log(card)
+    this.props.navigation.navigate('Detail')
+  }
+
   render() {
-      const { navigate } = this.props.navigation;
+
+    const { navigate } = this.props.navigation;
     return(
       <View style={styles.container}>
         <Header />
-        <TouchableHighlight onPress = {() => this.props.navigation.navigate('Detail')}>
+        <TouchableHighlight>
           <Text> HI </Text>
         </TouchableHighlight>
         <Text>REAL-TIME Crypto</Text>
         <Text>REAL-TIME HODLS</Text>
-        <CryptoContainer />
+        <CryptoContainer navigateDetail={this.navigateDetail.bind(this)} />
       </View>
     )
   }
@@ -34,3 +41,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+function mapStateToProps(state) {
+  return {
+    crypto: state.crypto
+  }
+};
+
+export default connect(mapStateToProps, {...actions})(Base);

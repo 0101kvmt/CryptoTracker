@@ -1,11 +1,14 @@
 import React,{ Component } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { connect } from 'react-redux';
 
+import {FetchCrypto} from './../../actions/FetchCrypto'
 import CryptoContainer from './../../components/CryptoContainer.js';
 import  Card  from './../../components/card.js';
 import  Header  from './../../components/header.js';
 
-export default class Detail extends Component {
+
+class Detail extends Component {
   render() {
     return(
       <View style= {styles.container}>
@@ -22,3 +25,12 @@ const styles = StyleSheet.create({
     marginTop: 55
   }
 })
+
+function mapStateToProps(state) {
+  return {
+    crypto: state.crypto
+  }
+
+};
+
+export default connect(mapStateToProps, {FetchCrypto})(Detail);

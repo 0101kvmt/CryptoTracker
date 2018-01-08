@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TouchableHighlight } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 
@@ -10,6 +10,10 @@ class CryptoContainer extends Component {
 
   componentDidMount() {
     this.props.FetchCrypto();
+  }
+  updateParentDetail(cname) {
+    console.log('update', cname)
+    this.props.navigateDetail(cname);
   }
   renderCards() {
     const crypton = this.props.crypto.data;
@@ -26,6 +30,7 @@ class CryptoContainer extends Component {
               usd={c.price_usd}
               percent_change_24h={c.percent_change_24h}
               percent_change_7d={c.percent_change_7d}
+              pressIcon={() => {this.updateParentDetail(c.name)}}
             />
           )
           }
