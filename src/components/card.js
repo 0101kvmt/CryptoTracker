@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flex: 2,
         marginBottom: 20,
-        backgroundColor: 'blue',
+        backgroundColor: '#00FFFF',
         borderRadius: 10,
         borderBottomWidth: 3,
         padding: 20

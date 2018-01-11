@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import {FetchCrypto} from './../../actions/FetchCrypto'
 import CryptoContainer from './../../components/CryptoContainer.js';
-import  Card  from './../../components/card.js';
+import  DetailCard  from './../../components/DetailCard.js';
 import  Header  from './../../components/header.js';
 
 
@@ -16,7 +16,7 @@ class Detail extends Component {
       .map((d, i) => {
           console.log("detailed", d);
           return (
-            <Card
+            <DetailCard
               key={i}
               name={d.name}
               icon={d.symbol}
@@ -34,6 +34,7 @@ class Detail extends Component {
     return(
       <View style= {styles.container}>
         <Text> correct </Text>
+        {detailCrypto}
       </View>
     )
   }
