@@ -17,7 +17,7 @@ class Base extends Component {
   }
 
   render() {
-
+    console.log("Base page")
     const { navigate } = this.props.navigation;
     const config = Config.testName;
     return(
