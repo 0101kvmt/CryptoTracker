@@ -9,6 +9,16 @@ import  Header  from './../../components/header.js';
 
 
 class Detail extends Component {
+
+  constructor() {
+    super();
+
+    this.state = { isAuthenticated: false, user: null, token: ''};
+  }
+
+  componentDidMount(){
+
+  }
   render() {
       const navName = this.props.navigation.state.params.name;
       console.log(navName);

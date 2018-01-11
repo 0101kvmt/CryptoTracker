@@ -6,12 +6,14 @@ import { images } from './../utils/CoinIcons.js'
   const styles = StyleSheet.create({
     container: {
         display: "flex",
-        flex: 2,
+        flex: 1,
         marginBottom: 20,
         backgroundColor: '#00FFFF',
         borderRadius: 10,
         borderBottomWidth: 3,
-        padding: 20
+        paddingLeft: 60,
+        paddingRight: 60,
+        paddingTop: 30
     },
     upperRow: {
         display: "flex",
