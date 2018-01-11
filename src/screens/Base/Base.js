@@ -12,7 +12,7 @@ class Base extends Component {
 
   navigateDetail(card) {
     console.log(card)
-    this.props.navigation.navigate('Detail')
+    this.props.navigation.navigate('Detail', {name: card } )
   }
 
   render() {

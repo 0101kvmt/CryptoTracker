@@ -10,6 +10,27 @@ import  Header  from './../../components/header.js';
 
 class Detail extends Component {
   render() {
+      const navName = this.props.navigation.state.params.name;
+      console.log(navName);
+      const detailCrypto = this.props.crypto.data.filter(c => c.name === navName)
+      .map((d, i) => {
+          console.log("detailed", d);
+          return (
+            <Card
+              key={i}
+              name={d.name}
+              icon={d.symbol}
+              usd={d.price_usd}
+              percent_change_24h={d.percent_change_24h}
+              percent_change_7d={d.percent_change_7d}
+              pressIcon={() => {this.updateParentDetail(d.name)}}
+            />
+          )
+        }
+
+      );
+
+      console.log("clipto", detailCrypto);
     return(
       <View style= {styles.container}>
         <Text> correct </Text>
